@@ -5,16 +5,25 @@
 const duration_input = document.querySelector("#duration");
 const start_button = document.querySelector("#startBtn");
 const pause_button = document.querySelector("#pauseBtn");
+const circle = document.querySelector("#circle");
+const perimeter = circle.getAttribute("r") * 2 * Math.PI;
+
+circle.setAttribute("stroke-dasharray", perimeter);
+
+let duration;
 
 // We separate the timer itself from the animations by adding a fourth parameter
 // This way, our code will look clean and set to it's true purpose
-
 const timerOne = new Timer(duration_input, start_button, pause_button, {
-  onStart() {
-    console.log("Timer has Started!");
+  onStart(totalDuration) {
+    duration = totalDuration;
   },
-  onTick() {
+  onTick(timeRemaining) {
     console.log("Timer has Ticked Down!");
+    circle.setAttribute(
+      "stroke-dashoffset",
+      (perimeter * timeRemaining) / duration - perimeter
+    );
   },
   onComplete() {
     console.log("Timer has Completed!");
