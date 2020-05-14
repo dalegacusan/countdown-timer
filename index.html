@@ -8,25 +8,30 @@
   <link rel="stylesheet" href="index.css">
   <link rel="shortcut icon" href="images/clock.png" type="image/x-icon">
 
-  <title>Countdown Timer</title>
+  <title>Countdown Timer | Dale Patrick</title>
 </head>
 
 <body>
 
   <h1>Countdown Timer</h1>
 
+  <div class="container">
+    <div class="shape">
+      <svg width="400" height="400">
+        <circle cx="200" cy="200" r="190" stroke="#18ad36" stroke-width="15" fill="transparent"
+          transform="rotate(-90 200 200)" id="circle" />
+      </svg>
+    </div>
 
-  <svg width="400" height="400">
-    <circle cx="200" cy="200" r="190" stroke="#18ad36" stroke-width="15" fill="transparent"
-      transform="rotate(-90 200 200)" id="circle" />
-  </svg>
 
-  <div class="clickables">
-    <input id="duration" value="60">
-
-    <button type="button" id="startBtn"><i class="fas fa-play"></i></button>
-    <button type="button" id="pauseBtn"><i class="fas fa-pause"></i></button>
+    <div class="clickables">
+      <input id="duration" value="60">
+      <br />
+      <button type="button" id="startBtn"><i class="fas fa-play"></i></button>
+      <button type="button" id="pauseBtn"><i class="fas fa-pause"></i></button>
+    </div>
   </div>
+
 
   <!--
     We need to run timer.js first before index.js uses the class

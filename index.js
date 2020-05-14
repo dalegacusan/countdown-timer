@@ -19,13 +19,16 @@ const timerOne = new Timer(duration_input, start_button, pause_button, {
     duration = totalDuration;
   },
   onTick(timeRemaining) {
-    console.log("Timer has Ticked Down!");
     circle.setAttribute(
       "stroke-dashoffset",
       (perimeter * timeRemaining) / duration - perimeter
     );
   },
   onComplete() {
-    console.log("Timer has Completed!");
+    let bell = new Audio("sounds/bell.mp3");
+    bell.play();
+    setTimeout(() => {
+      bell.pause();
+    }, 5000);
   },
 });
